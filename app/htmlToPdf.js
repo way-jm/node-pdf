@@ -15,7 +15,7 @@ const convertHtmlToPDF = async (ctx)=>{
             // chart:'https://s3.bmp.ovh/imgs/2022/06/30/4143fa535837202b.png',
             chart:url,
         });
-        console.log(rendered)
+        // console.log(rendered)
         wkhtmltopdf(rendered, { pageSize: 'letter' })
             .pipe(fs.createWriteStream('out.pdf'));
     })
