@@ -23,11 +23,14 @@ const convertHtmlToPDF = async (ctx)=>{
     // console.log(rendered)
     ctx.set('Content-Type', 'application/pdf');
     ctx.set("Access-Control-Allow-Origin", "*");
-    const stream =  await wkhtmltopdf(rendered, { pageSize: 'letter'})
+    const stream =  await wkhtmltopdf('http://news.baidu.com', { pageSize: 'letter'})
+    // 对比pdf-lib
     ctx.body = stream;
-    // const html = `<h1 style="color:red">${value}<img src="https://s3.bmp.ovh/imgs/2022/06/30/4143fa535837202b.png"/></h1>`
-    // wkhtmltopdf('https://www.baidu.com', { pageSize: 'letter' })
+    // wkhtmltopdf('<h1>demo</h1>', { pageSize: 'letter' })
     //     .pipe(fs.createWriteStream('out.pdf'));
+    // ctx.body = {
+    //     status:0
+    // }
 
 }
 module.exports ={
